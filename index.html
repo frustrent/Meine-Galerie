@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galerie</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f7f7f7;
+    }
+
+    header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+    header input {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    main {
+      padding-top: 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    section {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 30px 20px;
+      background-color: white;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+    section img {
+      width: 200px;
+      height: auto;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    section img:hover {
+      transform: scale(1.02);
+    }
+    section h2 {
+      margin: 0 0 10px;
+    }
+    section p {
+      margin: 0;
+    }
+    .text-block {
+      flex: 1;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .overlay button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+  <div class="header-box">
+    <div class="nav-buttons">
+      <a href="#"> MEINE GALERIE</a>
+      <a href="#">KONTAKT</a>
+    </div>
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Suchen..." />
+    </div>
+  </div>
+</header>
+
+  <main>
+    <section>
+      <img src="Abend.jpg" alt="Abend" onclick="showOverlay(this)">
+      <div class="text-block">
+        <h2>Ein Foto von anderem Winkel</h2>
+      </div>
+    </section>
+
+    <section>
+      <img src="Kafee.jpg" alt="Kafee" onclick="showOverlay(this)">
+      <div class="text-block">
+        <h2>Ein Kaffeebild</h2>
+      </div>
+    </section>
+
+    <section>
+      <img src="Maler.jpg" alt="Maler" onclick="showOverlay(this)">
+      <div class="text-block">
+        <h2>Einen Blick auf Maler von der Seite</h2>
+      </div>
+    </section>
+
+    <section>
+      <img src="Prisma.jpg" alt="Prisma" onclick="showOverlay(this)">
+      <div class="text-block">
+        <h2>Das Prisma, die Wahrheit zeigt.</h2>
+      </div>
+    </section>
+
+    <section>
+      <img src="Sonne.jpg" alt="Sonne" onclick="showOverlay(this)">
+      <div class="text-block">
+        <h2>Sonne und Planeten</h2>
+      </div>
+    </section>
+
+    <section>
+      <img src="Sunset.jpg" alt="Sunset" onclick="showOverlay(this)">
+      <div class="text-block">
+        <h2>Sonnenuntergang</h2>
+      </div>
+    </section>
+
+    <section>
+      <img src="Vinyl.jpg" alt="Vinyl" onclick="showOverlay(this)">
+      <div class="text-block">
+        <h2>Musik, die fesselt</h2>
+      </div>
+    </section>
+
+    <section>
+      <img src="Spuren.jpg" alt="Spuren" onclick="showOverlay(this)">
+      <div class="text-block">
+        <h2>Alles im Leben hinterlässt Spuren</h2>
+      </div>
+    </section>
+
+    <section>
+      <img src="Digital.png" alt="Digital" onclick="showOverlay(this)">
+      <div class="text-block">
+        <h2>Album Cover</h2>
+      </div>
+    </section>
+
+    <section>
+        <div class="gallery-section">
+  <div class="image-row">
+    <img src="Wand 1.jpg" alt="Bild 1" class="clickable-image" />
+    <img src="Wand 2.jpg" alt="Bild 2" class="clickable-image" />
+    <img src="Wand 3.jpg" alt="Bild 3" class="clickable-image" />
+  </div>
+  <div class="image-text">
+    <h3>Flucht vor negativen Gedanken</h3>
+  </div>
+</div>
+
+
+    </section>
+  </main>
+
+  <div class="overlay" id="overlay" onclick="hideOverlay()">
+    <img id="overlay-img" src="" alt="">
+    <button onclick="hideOverlay()">Schließen</button>
+  </div>
+
+  <footer>
+    <p>Kontakt: Ivan Drebeda</p>
+    <p>Email: ivandrebeda@gmail.com</p>
+  </footer>
+
+  <script>
+    function showOverlay(img) {
+      const overlay = document.getElementById('overlay');
+      const overlayImg = document.getElementById('overlay-img');
+      overlayImg.src = img.src;
+      overlay.style.display = 'flex';
+    }
+
+    function hideOverlay() {
+      const overlay = document.getElementById('overlay');
+      overlay.style.display = 'none';
+    }
+  </script>
+  <div id="imageModal" class="modal">
+  <span id="closeModal" class="close">&times;</span>
+  <img id="modalImage" class="modal-content" />
+</div>
+<script>
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.getElementById("closeModal");
+
+  document.querySelectorAll(".clickable-image").forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+</script>
+
+
+</body>
+</html>
+
